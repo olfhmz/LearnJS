@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+	<style>
+		.menu ul {
+			display: none;
+		}
+
+		.title::before {
+			content: '▶ ';
+			color: green;
+		}
+
+		.menu.open .title::before {
+			content: '▼ ';
+			color: green;
+		}
+
+		.menu.open ul {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="menu" id="menuId">
+		<span class="title">Сладости (нажми меня)!</span>
+		<ul>
+			<li>Пирожное</li>
+			<li>Пончик</li>
+			<li>Мёд</li>
+		</ul>
+	</div>
+
+	<script>
+		let menuElem = document.getElementById('menuId');
+		let titleElem = menuElem.querySelector('.title');
+
+		titleElem.onclick = function() {
+			menuElem.classList.toggle('open');
+		};
+	</script>
+</body>
+</html>

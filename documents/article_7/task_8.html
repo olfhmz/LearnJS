@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<style>
+		.hour {
+			color: blueviolet;
+		}
+
+		.min {
+			color: blue;
+		}
+
+		.sec {
+			color: pink;
+		}
+	</style>
+
+	<div id="clock">
+		<span class="hour">hh</span>
+		:<span class="min">mm</span>
+		:<span class="sec">ss</span>
+	</div>
+
+	<script>
+		function timeUpdate() {
+			let date = new Date();
+			let clock = document.getElementById('clock');
+
+			let hours = date.getHours();
+			if (hours < 10) hours += '0';
+			clock.children[0].innerHTML = hours;
+
+			let mins = date.getMinutes();
+			if (mins < 10) mins += '0';
+			clock.children[1].innerHTML = mins;
+
+			let secs = date.getSeconds();
+			if (secs < 10) secs += '0';
+			clock.children[2].innerHTML = secs;
+		}
+
+		let id;
+
+		function start() {
+			if (!id)
+				id = setInterval(timeUpdate, 1000);
+			timeUpdate();
+		}
+
+		function stop() {
+			clearInterval(id);
+			id = null;
+		}
+	</script>
+
+  <input type="button" onclick="start()" value="Start">
+  <input type="button" onclick="stop()" value="Stop">
+
+</body>
+</html>

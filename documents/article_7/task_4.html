@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let list_ul = document.createElement('ul');
+		document.body.append(list_ul);
+
+		while (true) {
+			let data = prompt("Текст для элемента: ", "");
+
+			if (!data) break;
+			
+			let list_li = document.createElement('li');
+			list_li.textContent = data;
+			list_ul.append(list_li);
+		}
+	</script>
+</body>
+</html>
